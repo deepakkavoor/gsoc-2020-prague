@@ -8,9 +8,9 @@ I am grateful to ns-3 for accepting my project proposal, and to Google for fundi
 
 ## Introduction and Motivation
 
-The Low Latency, Low Loss Scalable Throughput (L4S) architecture (todo: ref) is designed to reduce latency for all Internet applications. In order to reduce queuing delay, this approach shifts the focus from optimizing Active Queue Management (AQM) towards introducing newer techniques in the TCP. The core objective is to use a congestion control mechanism that _scales_ with congestion in the network. 
+The Low Latency, Low Loss Scalable Throughput (L4S) architecture is designed to reduce latency for all Internet applications. In order to reduce queuing delay, this approach shifts the focus from optimizing Active Queue Management (AQM) towards introducing newer techniques in the TCP. The core objective is to use a congestion control mechanism that _scales_ with congestion in the network. 
 
-Existing TCP congestion controls such as Reno and Cubic can perform badly in high-speed networks because of their slow response with large congestion windows. These _non-scalable_ congestion controls fail to better utilize networks with high bandwidth-delay products (todo: ref). _Scalable_ TCP offers a robust mechanism to improve this performance using traditional TCP receivers without interacting badly with existing traffic. 
+Existing TCP congestion controls such as Reno and Cubic can perform badly in high-speed networks because of their slow response with large congestion windows. These _non-scalable_ congestion controls fail to better utilize networks with high bandwidth-delay products. _Scalable_ TCP offers a robust mechanism to improve this performance using traditional TCP receivers without interacting badly with existing traffic. 
 
 With this in mind, scalable congestion controls such as Data Center TCP (DCTCP) already exist. However, there are several problems if DCTCP was deployed on the Internet: for example, if DCTCP flows and Reno-like flows were to share a common queue, DCTCP increases the rate of ECN marking and Reno-like flows would reduce their throughput by a larger margin leading to unfairness between the two kinds of flows.
 
