@@ -103,7 +103,7 @@ To explain better, let's take an example: suppose `curRTT` = 5ms, `targetRTT` = 
 
     - The second factor is also equally important. With only the first factor, Prague and Reno (with say `cWnd` = 10 segments for each and RTTs 5ms and 15ms respectively) now update `cWnd` by equal amounts per ACK. However, the update frequency is higher in case of Prague (due to its lower RTT). More concretely, the number of times `cWnd` is incrememted in case of Reno per 15ms is 10, whereas Prague increments `cWnd` 10 times per 5ms and hence 30 times per 15ms. Let us say 
     ```
-    Increase in throughput = number of times cWnd is updated * cWnd increase each time
+    increase in throughput = no. of times cWnd is updated * cWnd increment each time
     ```
     Note that the increase in throughput for Reno is 10 * 1 = 10 segments per 15ms, and for Prague is 30 * 1 = 30 segments per 15ms. If we indeed used the second factor, `cWnd` increase per ACK for Prague would be `1 / 9 * 1 / cWnd` (the increase per 15ms would be 1 / 3), and hence the increase in throughput would be 30 * 1 / 3 = 10 segments per 15ms.
 
