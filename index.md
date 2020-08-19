@@ -107,7 +107,7 @@ To explain better, let's take an example: suppose `curRTT` = 5ms, `targetRTT` = 
     ```
     Note that the increase in throughput for Reno is 10 * 1 = 10 segments per 15ms, and for Prague is 30 * 1 = 30 segments per 15ms. If we indeed used the second factor, `cWnd` increase per ACK for Prague would be `1 / 9 * 1 / cWnd` (the increase per 15ms would be 1 / 3), and hence the increase in throughput would be 30 * 1 / 3 = 10 segments per 15ms.
 
-There are different types of RTT Scaling heuristics used, and the increment equation mentioned before refer to the "Rate Control" heuristic. For other heuristics like "Scalable" and "Additive", one can refer to the code linked above.
+There are different types of RTT Scaling heuristics used, and the increment equation mentioned before refers to the "Rate Control" heuristic. For other heuristics like "Scalable" and "Additive", one can refer to the code linked above.
 
 ## Phase 3: Alignment with Linux
 
