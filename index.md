@@ -6,6 +6,12 @@ I thank Tom Henderson, Ankit Deepak, Mohit Tahiliani, Vivek Jain, Viyom Mittal f
 
 I am grateful to ns-3 for accepting my project proposal, and to Google for funding me throughout the project.
 
+## Table of Contents
+
+1. [Introduction and Motivation](#introduction-and-motivation)
+2. [Project Overview](#project-overview)
+3. [Phase 1: Dynamic Pacing Rate](#phase-1-:-dynamic-pacing-rate)
+
 ## Introduction and Motivation
 
 The Low Latency, Low Loss Scalable Throughput (L4S) architecture is designed to reduce latency for all Internet applications. In order to reduce queuing delay, this approach shifts the focus from optimizing Active Queue Management (AQM) towards introducing newer techniques in the TCP. The core objective is to use a congestion control mechanism that _scales_ with congestion in the network. 
@@ -34,7 +40,7 @@ On a higher level, this project was divided into three phases each spanning a mo
 - Phase 2: Implement RTT independence in ns-3 DCTCP
 - Phase 3: Extend ns-3 Prague from ns-3 DCTCP aligned with Linux Prague
 
-### Phase 1 - Dynamic Pacing Rate
+## Phase 1: Dynamic Pacing Rate
 
 **Link to code:**
 
@@ -56,7 +62,7 @@ During Slow Start, Linux uses a default value of `factor = 2` (which allows TCP 
 
 A test suite was also added that confirms whether packets are being paced out at the correct rate, depending on whether the sender TCP is currently in Slow Start or Congestion Avoidance. 
 
-### Phase 2 - RTT Independence
+## Phase 2: RTT Independence
 
 **Link to code:**
 
@@ -98,7 +104,7 @@ To explain better, let's take an example: suppose `curRTT` = 5ms, `targetRTT` = 
 
 There are different types of RTT Scaling heuristics used, and the increment equation mentioned before refer to the "Rate Control" heuristic. For other heuristics like "Scalable" and "Additive", one can refer to the code linked above.
 
-### Phase 3 - Alignment with Linux
+## Phase 3: Alignment with Linux
 
 **Link to code:**
 
@@ -122,19 +128,23 @@ The two-flow scenario was used to validate the RTT independence feature of ns-3 
 
 We obtained closely aligning results between ns-3 and Linux for both the one-flow and two-flow scenarios. The corresponding plots and results can be found in the two Google Drive links attached above.
 
-### Future Work
+For instance, the following figure shows alignment between ns-3 Prague and Linux Prague with the one-flow scenario, bottleneck of 50Mbps and an RTT of 20ms.
+
+![Figure 2: Alignment in one-flow scenario](Images/one-flow-alignment.png)
+
+## Future Work
 
 There is still more work to be done in order to fully align ns-3 Prague with Linux. Accurate ECN (AccECN) feedback is currently absent in ns-3, and its addition would allow ns-3 Prague to identify congestion in the network with more precision. AccECN is currently present in Linux Prague, and is a requirement for the end nodes to use Prague. 
 
 Classic ECN detection is another feature absent in mainline ns-3 Prague. This feature would allow Prague to detect if it shares (with a non-scalable congestion control) a common bottleneck queue that supports only classic ECN. In that case, Prague would reduce its congestion window appropriately by a larger value to ensure fairness. This feature is currently present in Linux.
 
-### Conclusion
+## Conclusion
 
 Since TCP Prague is still actively being researched and debated about, a network simulator such as ns-3 would allow easy reproducibility of results and more importantly allow researchers to try different possibilities in search of improvements. 
 
 We hope that the alignment results obtained in this project provide a motivation to use ns-3 more extensively for research and development of future modifications over TCP Prague.
 
-### References
+## References
 
 [1](https://tools.ietf.org/id/draft-ietf-tsvwg-l4s-arch-03.html) Low Latency, Low Loss, Scalable Throughput (L4S) Internet Service: Architecture
 
