@@ -8,9 +8,14 @@ I am grateful to ns-3 for accepting my project proposal, and to Google for fundi
 
 ## Table of Contents
 
-1. [Introduction and Motivation](#introduction-and-motivation)
-2. [Project Overview](#project-overview)
-3. [Phase 1: Dynamic Pacing Rate](#phase-1-:-dynamic-pacing-rate)
+- [Introduction and Motivation](#introduction-and-motivation)
+- [Project Overview](#project-overview)
+- [Phase 1: Dynamic Pacing Rate](#phase-1-dynamic-pacing-rate)
+- [Phase 2: RTT Independence](#phase-2-rtt-independence)
+- [Phase 3: Alignment with Linux](#phase-3-alignment-with-linux)
+- [Conclusion](#conclusion)
+- [Future Work](#future-work)
+- [References](#references)
 
 ## Introduction and Motivation
 
@@ -96,11 +101,11 @@ To explain better, let's take an example: suppose `curRTT` = 5ms, `targetRTT` = 
 
     - Let's see the significance of the first factor in the modified update equation. In this case, `cWnd` is increased by `(1 / 3) * 1 / cWnd` for every ACK, meaning that `cWnd` is increased by 1 / 3 segments in 5ms and consequently by 1 segment in 15ms. This is the expected increase for a Reno flow with RTT 15ms.
 
-    - The second factor is also equally important. With only the first factor, Prague and Reno (with say `cWnd` = 10 segments for each and RTTs 5ms and 15ms respectively) now update `cWnd` by equal amounts per ACK. However, the update frequency is higher in case of Prague (due to its lower RTT). More concretely, the number of times `cWnd` is incrememted in case of Reno per 15ms is 10, whereas Prague increments `cWnd` 10 times per 5ms and hence 30 times per 15ms. If we assume 
+    - The second factor is also equally important. With only the first factor, Prague and Reno (with say `cWnd` = 10 segments for each and RTTs 5ms and 15ms respectively) now update `cWnd` by equal amounts per ACK. However, the update frequency is higher in case of Prague (due to its lower RTT). More concretely, the number of times `cWnd` is incrememted in case of Reno per 15ms is 10, whereas Prague increments `cWnd` 10 times per 5ms and hence 30 times per 15ms. Let us say 
     ```
-    Increase in throughput = number of times cWnd is updated * cWnd increment each time
+    Increase in throughput = number of times cWnd is updated * cWnd increase each time
     ```
-    note that the increase in throughput for Reno is 10 * 1 = 10 segments per 15ms, and for Prague is 30 * 1 = 30 segments per 15ms. If we indeed used the second factor, `cWnd` increase per ACK for Prague would be `1 / 9 * 1 / cWnd` (the increase per 15ms would be 1 / 3), and hence the increase in throughput would be 30 * 1 / 3 = 10 segments per 15ms.
+    Note that the increase in throughput for Reno is 10 * 1 = 10 segments per 15ms, and for Prague is 30 * 1 = 30 segments per 15ms. If we indeed used the second factor, `cWnd` increase per ACK for Prague would be `1 / 9 * 1 / cWnd` (the increase per 15ms would be 1 / 3), and hence the increase in throughput would be 30 * 1 / 3 = 10 segments per 15ms.
 
 There are different types of RTT Scaling heuristics used, and the increment equation mentioned before refer to the "Rate Control" heuristic. For other heuristics like "Scalable" and "Additive", one can refer to the code linked above.
 
@@ -132,22 +137,22 @@ For instance, the following figure shows alignment between ns-3 Prague and Linux
 
 ![Figure 2: Alignment in one-flow scenario](Images/one-flow-alignment.png)
 
-## Future Work
-
-There is still more work to be done in order to fully align ns-3 Prague with Linux. Accurate ECN (AccECN) feedback is currently absent in ns-3, and its addition would allow ns-3 Prague to identify congestion in the network with more precision. AccECN is currently present in Linux Prague, and is a requirement for the end nodes to use Prague. 
-
-Classic ECN detection is another feature absent in mainline ns-3 Prague. This feature would allow Prague to detect if it shares (with a non-scalable congestion control) a common bottleneck queue that supports only classic ECN. In that case, Prague would reduce its congestion window appropriately by a larger value to ensure fairness. This feature is currently present in Linux.
-
 ## Conclusion
 
 Since TCP Prague is still actively being researched and debated about, a network simulator such as ns-3 would allow easy reproducibility of results and more importantly allow researchers to try different possibilities in search of improvements. 
 
 We hope that the alignment results obtained in this project provide a motivation to use ns-3 more extensively for research and development of future modifications over TCP Prague.
 
+## Future Work
+
+There is still more work to be done in order to fully align ns-3 Prague with Linux. Accurate ECN (AccECN) feedback is currently absent in ns-3, and its addition would allow ns-3 Prague to identify congestion in the network with more precision. AccECN is currently present in Linux Prague, and is a requirement for the end nodes to use Prague. 
+
+Classic ECN detection is another feature absent in mainline ns-3 Prague. This feature would allow Prague to detect if it shares (with a non-scalable congestion control) a common bottleneck queue that supports only classic ECN. In that case, Prague would reduce its congestion window appropriately by a larger value to ensure fairness. This feature is currently present in Linux.
+
 ## References
 
-[1](https://tools.ietf.org/id/draft-ietf-tsvwg-l4s-arch-03.html) Low Latency, Low Loss, Scalable Throughput (L4S) Internet Service: Architecture
+[[1]](https://tools.ietf.org/id/draft-ietf-tsvwg-l4s-arch-03.html) Low Latency, Low Loss, Scalable Throughput (L4S) Internet Service: Architecture
 
-[2](https://www.ietf.org/proceedings/interim-2020-tsvwg-01/slides/slides-interim-2020-tsvwg-01-sessa-l4s-tcp-prague-update-00.pdf) Slides from the TSVWG IETF Interim Meeting, February 2020
+[[2]](https://www.ietf.org/proceedings/interim-2020-tsvwg-01/slides/slides-interim-2020-tsvwg-01-sessa-l4s-tcp-prague-update-00.pdf) Slides from the TSVWG IETF Interim Meeting, February 2020
 
-[3](https://arxiv.org/pdf/1911.00710.pdf) TCP Prague Fall-back on Detection of a Classic ECN AQM
+[[3]](https://arxiv.org/pdf/1911.00710.pdf) TCP Prague Fall-back on Detection of a Classic ECN AQM
