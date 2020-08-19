@@ -2,7 +2,9 @@
 
 This page summarizes my work done from June 2020 - August 2020 with the [ns-3](https://gitlab.com/nsnam/) Network Simulator as part of [Google Summer of Code](https://summerofcode.withgoogle.com/) 2020.
 
-I am grateful to the developers at ns-3 for accepting my proposal, and to Google for funding me throughout the project.
+I thank Tom Henderson, Ankit Deepak, Mohit Tahiliani, Vivek Jain, Viyom Mittal for assisting me with the project goals and directions. I also thank Bob Briscoe, Olivier Tilmans and Asad Sajjad Ahmed for the many useful email discussions about Prague.   
+
+I am grateful to ns-3 for accepting my project proposal, and to Google for funding me throughout the project.
 
 ## Introduction and Motivation
 
@@ -17,7 +19,7 @@ Therefore, several new features are added to DCTCP to allow it to be deployed on
 - The L4S service traffic needs to be isolated from the queuing delay of the Classic service traffic.
 - The host needs to distinguish L4S and Classic packets with an identifier.
 
-All these additional modifications over DCTCP have been drafted into a new protocol called **TCP Prague**, that aims to integrate scalable congestion controls into the Internet by providing many safety mechanisms that allow it to coexist with current Classic protocols. These modifications are highlighted in Figure 1.
+All these additional modifications over DCTCP have been drafted into a new protocol called **TCP Prague**, that aims to integrate scalable congestion controls into the Internet by providing many safety mechanisms that allow it to coexist with current Classic protocols. These modifications include Accurate ECN feedback, Pacing, RTT Independence, Classic ECN AQM detection, and are highlighted in the following figure.
 
 ![Figure 1: Overview of TCP Prague](Images/prague-overview.png?raw=true)
 
@@ -86,48 +88,56 @@ To explain better, let's take an example: suppose `curRTT` = 5ms, `targetRTT` = 
 
 - RTT independence enabled: 
 
-- - Let's see the significance of the first factor in the modified update equation. In this case, `cWnd` is increased by `(1 / 3) * 1 / cWnd` for every ACK, meaning that `cWnd` is increased by 1 / 3 segments in 5ms and consequently by 1 segment in 15ms. This is the expected increase for a Reno flow with RTT 15ms.
+    - Let's see the significance of the first factor in the modified update equation. In this case, `cWnd` is increased by `(1 / 3) * 1 / cWnd` for every ACK, meaning that `cWnd` is increased by 1 / 3 segments in 5ms and consequently by 1 segment in 15ms. This is the expected increase for a Reno flow with RTT 15ms.
 
-- - The second factor is also equally important. With only the first factor, Prague and Reno (with say `cWnd` = 10 segments for each and RTTs 5ms and 15ms respectively) now update `cWnd` by equal amounts per ACK. However, the update frequency is higher in case of Prague (due to its lower RTT). More concretely, the number of times `cWnd` is incrememted in case of Reno per 15ms is 10, whereas Prague increments `cWnd` 10 times per 5ms and hence 30 times per 15ms. If we assume 
-
-```
-Increase in throughput per 15ms = number of times cWnd is updated in 15ms * cWnd increment each time
-```
-
-note that the increase in throughput for Reno is 10 * 1 = 10 segments per 15ms, and for Prague is 30 * 1 = 30 segments per 15ms. If we indeed used the second factor, `cWnd` increase per ACK for Prague would be `1 / 9 * 1 / cWnd` (the increase per 15ms would be 1 / 3), and hence the increase in throughput would be 30 * 1 / 3 = 10 segments per 15ms.
+    - The second factor is also equally important. With only the first factor, Prague and Reno (with say `cWnd` = 10 segments for each and RTTs 5ms and 15ms respectively) now update `cWnd` by equal amounts per ACK. However, the update frequency is higher in case of Prague (due to its lower RTT). More concretely, the number of times `cWnd` is incrememted in case of Reno per 15ms is 10, whereas Prague increments `cWnd` 10 times per 5ms and hence 30 times per 15ms. If we assume 
+    ```
+    Increase in throughput = number of times cWnd is updated * cWnd increment each time
+    ```
+    note that the increase in throughput for Reno is 10 * 1 = 10 segments per 15ms, and for Prague is 30 * 1 = 30 segments per 15ms. If we indeed used the second factor, `cWnd` increase per ACK for Prague would be `1 / 9 * 1 / cWnd` (the increase per 15ms would be 1 / 3), and hence the increase in throughput would be 30 * 1 / 3 = 10 segments per 15ms.
 
 There are different types of RTT Scaling heuristics used, and the increment equation mentioned before refer to the "Rate Control" heuristic. For other heuristics like "Scalable" and "Additive", one can refer to the code linked above.
 
 ### Phase 3 - Alignment with Linux
 
-#### References
+**Link to code:**
 
+**[https://gitlab.com/deepakkavoor/ns-3-dev/-/commits/prague-mr](https://gitlab.com/deepakkavoor/ns-3-dev/-/commits/prague-mr)**
 
+**Alignment in the one-flow scenario:**
 
-<!-- You can use the [editor on GitHub](https://github.com/deepakkavoor/gsoc-2020-prague/edit/gh-pages/index.md) to maintain and preview the content for your website in Markdown files.
+**[https://drive.google.com/drive/folders/1qUhWiFwFO9eM8JQZWinMoD2TZVkC4Ca-](https://drive.google.com/drive/folders/1qUhWiFwFO9eM8JQZWinMoD2TZVkC4Ca-)**
 
-Whenever you commit to this repository, GitHub Pages will run [Jekyll](https://jekyllrb.com/) to rebuild the pages in your site, from the content in your Markdown files.
+**Alignment in the two-flow scenario:**
 
-### Markdown
+**[https://drive.google.com/drive/folders/1hBZ2SUlfSWEO1gRhXeUmGfAzXmd8DRGJ](https://drive.google.com/drive/folders/1hBZ2SUlfSWEO1gRhXeUmGfAzXmd8DRGJ)** 
 
-Markdown is a lightweight and easy-to-use syntax for styling your writing. It includes conventions for
+The features from Phases 1 and 2 were implemented on top of ns-3 Prague, which was very similar in structure to ns-3 DCTCP (except that ns-3 Prague used the ECT(1) codepoint). During this phase, the ns-3 Prague code was heavily refactored to match the Linux implementation.
 
-```markdown
-Syntax highlighted code block
+We decided to validate ns-3 Prague with that of Linux using Network Namespaces. The topology scenarios used to validate our implementation were chosen from [Pete Heist's](https://github.com/heistp/sce-l4s-ect1#scenario-1-one-flow) experiments, which compared the L4S architecture against SCE using Linux namespaces as well. 
 
-# Header 1
-## Header 2
-### Header 3
+The one-flow scenario contains a Prague sender, five routers and a Prague receiver. All nodes except two routers use an FqCoDel queue disc, one router uses FIFO, and one uses the Dual-Queue Coupled AQM. The bottleneck bandwidth and RTT varied between 5Mbps, 50Mbps, 250Mbps and 20ms, 80ms, 160ms respectively. We used [NeST](https://gitlab.com/nitk-nest/nest) to build this topology in Linux namespaces, and the ns-3 [l4s-evaluation](https://gitlab.com/tomhend/modules/l4s-evaluation/-/tree/hackathon/master) suite to run the one-flow scenario in ns-3. The plots obtained in Linux and ns-3 for different values of bottleneck bandwidth and RTT values were compared with each other.
 
-- Bulleted
-- List
+The two-flow scenario was used to validate the RTT independence feature of ns-3 Prague with that of Linux. This topology is an extension of the previous one, with an addition of a Reno server and a Reno client sharing the same bottleneck as Prague. The bottleneck was fixed to be 50Mbps, and RTT varied between 500us, 5ms, 15ms, 200ms. Once again, NeST and the l4s-evaluation suite were used to obtain plots for comparison.
 
-1. Numbered
-2. List
+We obtained closely aligning results between ns-3 and Linux for both the one-flow and two-flow scenarios. The corresponding plots and results can be found in the two Google Drive links attached above.
 
-**Bold** and _Italic_ and `Code` text
+### Future Work
 
-[Link](url) and ![Image](src)
-```
+There is still more work to be done in order to fully align ns-3 Prague with Linux. Accurate ECN (AccECN) feedback is currently absent in ns-3, and its addition would allow ns-3 Prague to identify congestion in the network with more precision. AccECN is currently present in Linux Prague, and is a requirement for the end nodes to use Prague. 
 
-For more details see [GitHub Flavored Markdown](https://guides.github.com/features/mastering-markdown/). -->
+Classic ECN detection is another feature absent in mainline ns-3 Prague. This feature would allow Prague to detect if it shares (with a non-scalable congestion control) a common bottleneck queue that supports only classic ECN. In that case, Prague would reduce its congestion window appropriately by a larger value to ensure fairness. This feature is currently present in Linux.
+
+### Conclusion
+
+Since TCP Prague is still actively being researched and debated about, a network simulator such as ns-3 would allow easy reproducibility of results and more importantly allow researchers to try different possibilities in search of improvements. 
+
+We hope that the alignment results obtained in this project provide a motivation to use ns-3 more extensively for research and development of future modifications over TCP Prague.
+
+### References
+
+[1](https://tools.ietf.org/id/draft-ietf-tsvwg-l4s-arch-03.html) Low Latency, Low Loss, Scalable Throughput (L4S) Internet Service: Architecture
+
+[2](https://www.ietf.org/proceedings/interim-2020-tsvwg-01/slides/slides-interim-2020-tsvwg-01-sessa-l4s-tcp-prague-update-00.pdf) Slides from the TSVWG IETF Interim Meeting, February 2020
+
+[3](https://arxiv.org/pdf/1911.00710.pdf) TCP Prague Fall-back on Detection of a Classic ECN AQM
