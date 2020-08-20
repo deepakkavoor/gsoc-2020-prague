@@ -51,7 +51,7 @@ On a higher level, this project was divided into three phases each spanning a mo
 
 **[https://gitlab.com/deepakkavoor/ns-3-dev/-/commits/pacing-mr](https://gitlab.com/deepakkavoor/ns-3-dev/-/commits/pacing-mr)**
 
-In order to decrease pressure on the bottleneck queue and reduces frequent congestion marks, it is important for a Prague sender to pace out packets during transmission. Although ns-3 already had the pacing feature in TCP prior to this phase, one could only configure a fixed pacing rate which would be followed throughout the simulation. 
+In order to decrease pressure on the bottleneck queue and reduce frequent congestion marks, it is important for a Prague sender to pace out packets during transmission. Although ns-3 already had the pacing feature in TCP prior to this phase, one could only configure a fixed pacing rate which would be followed throughout the simulation. 
 
 In this phase, I worked on allowing the pacing rate to change dynamically based on current congestion window and RTT measurement. Our experiments also showed that enabling this dynamic behaviour prevented situations in which a Prague sender received an eary mark during Slow Start. This feature is present in Linux, and adding it to ns-3 was a valuable contribution towards aligning ns-3 Prague with Linux.
 
