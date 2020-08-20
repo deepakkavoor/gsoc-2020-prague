@@ -39,7 +39,7 @@ All these additional modifications over DCTCP have been drafted into a new proto
 
 At the time of this work, TCP Prague did not have a well defined IETF draft. Therefore, our primary goal was to align the ns-3 implementation of Prague with that of Linux. The L4S Team led by Bob Briscoe already had a Linux implementation of TCP Prague which was being tested separately, and wasn't yet merged into mainline Linux kernel. The current ns-3 Prauge version follows [this commit](https://github.com/L4STeam/linux/tree/b256daedc7672b2188f19e8b6f71ef5db7afc720) of their Linux implementation.   
 
-On a higher level, this project was divided into three phases each spanning a month. The objectives were successfully completed in each phase and are described below:
+On a higher level, this project was divided into three phases each spanning a month. The following objectives were successfully achieved in each phase:
 
 - Phase 1: Add dynamic pacing rate to ns-3 TCP
 - Phase 2: Implement RTT independence in ns-3 DCTCP
