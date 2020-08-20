@@ -9,7 +9,7 @@ I am grateful to ns-3 for accepting my project proposal, and to Google for fundi
 ## Table of Contents
 
 - [Introduction and Motivation](#introduction-and-motivation)
-- [Project Overview](#project-overview)
+- [Project Overview and Contributions](#project-overview-and-contributions)
 - [Phase 1: Dynamic Pacing Rate](#phase-1-dynamic-pacing-rate)
 - [Phase 2: RTT Independence](#phase-2-rtt-independence)
 - [Phase 3: Alignment with Linux](#phase-3-alignment-with-linux)
@@ -19,7 +19,7 @@ I am grateful to ns-3 for accepting my project proposal, and to Google for fundi
 
 ## Introduction and Motivation
 
-The Low Latency, Low Loss Scalable Throughput (L4S) architecture is designed to reduce latency for all Internet applications. In order to reduce queuing delay, this approach shifts the focus from optimizing Active Queue Management (AQM) towards introducing newer techniques in the TCP. The core objective is to use a congestion control mechanism that _scales_ with congestion in the network. 
+The Low Latency, Low Loss Scalable Throughput (L4S) architecture is designed to reduce latency for all Internet applications. In order to reduce queuing delay, this approach shifts the focus from optimizing Active Queue Management (AQM) towards introducing newer techniques in the TCP. The core objective here is to use a congestion control mechanism that _scales_ with RTT and network link speeds. 
 
 Existing TCP congestion controls such as Reno and Cubic can perform badly in high-speed networks because of their slow response with large congestion windows. These _non-scalable_ congestion controls fail to better utilize networks with high bandwidth-delay products. _Scalable_ TCP offers a robust mechanism to improve this performance using traditional TCP receivers without interacting badly with existing traffic. 
 
@@ -35,11 +35,11 @@ All these additional modifications over DCTCP have been drafted into a new proto
 ![Figure 1: Overview of TCP Prague](Images/prague-overview.png?raw=true)
 
 
-## Project Overview
+## Project Overview and Contributions
 
-At the time of this work, TCP Prague did not have a well defined IETF draft. Therefore, our primary goal was to align the ns-3 implementation of Prague with that of Linux. The L4S Team led by Bob Briscoe already had a Linux implementation of TCP Prague which was being tested separately, and wasn't yet merged into mainline Linux kernel. The ns-3 version followed [this commit](https://github.com/L4STeam/linux/tree/b256daedc7672b2188f19e8b6f71ef5db7afc720) of their Linux implementation.   
+At the time of this work, TCP Prague did not have a well defined IETF draft. Therefore, our primary goal was to align the ns-3 implementation of Prague with that of Linux. The L4S Team led by Bob Briscoe already had a Linux implementation of TCP Prague which was being tested separately, and wasn't yet merged into mainline Linux kernel. The current ns-3 Prauge version follows [this commit](https://github.com/L4STeam/linux/tree/b256daedc7672b2188f19e8b6f71ef5db7afc720) of their Linux implementation.   
 
-On a higher level, this project was divided into three phases each spanning a month. The objectives for each phase are briefly described below:
+On a higher level, this project was divided into three phases each spanning a month. The objectives were successfully completed in each phase and are described below:
 
 - Phase 1: Add dynamic pacing rate to ns-3 TCP
 - Phase 2: Implement RTT independence in ns-3 DCTCP
@@ -51,9 +51,9 @@ On a higher level, this project was divided into three phases each spanning a mo
 
 **[https://gitlab.com/deepakkavoor/ns-3-dev/-/commits/pacing-mr](https://gitlab.com/deepakkavoor/ns-3-dev/-/commits/pacing-mr)**
 
-It is important for a Prague sender to pace out packets during transmission. This helps to decrease pressure on the bottleneck queue and reduces congestion marks. Before this work, ns-3 already had the pacing feature in TCP. However, one could only configure a fixed pacing rate, which would be followed throughout the simulation. 
+In order to decrease pressure on the bottleneck queue and reduces frequent congestion marks, it is important for a Prague sender to pace out packets during transmission. Although ns-3 already had the pacing feature in TCP prior to this phase, one could only configure a fixed pacing rate which would be followed throughout the simulation. 
 
-In this phase, I worked on adding the feature that allows pacing rate to change dynamically based on the current congestion window and RTT measurement. This feature is present in Linux, and adding it to ns-3 would be a valuable contribution towards aligning ns-3 Prague with Linux.
+In this phase, I worked on allowing the pacing rate to change dynamically based on current congestion window and RTT measurement. Our experiments also showed that enabling this dynamic behaviour prevented situations in which a Prague sender received an eary mark during Slow Start. This feature is present in Linux, and adding it to ns-3 was a valuable contribution towards aligning ns-3 Prague with Linux.
 
 The pacing rate is updated as follows.
 
@@ -135,7 +135,7 @@ We obtained closely aligning results between ns-3 and Linux for both the one-flo
 
 For instance, the following figure shows alignment between ns-3 Prague and Linux Prague with the one-flow scenario, bottleneck of 50Mbps and an RTT of 20ms.
 
-![Figure 2: Alignment in one-flow scenario](Images/one-flow-alignment.png)
+![Figure 2: Alignment in one-flow scenario](Images/one-flow-alignment.png?raw=true)
 
 ## Conclusion
 
@@ -153,6 +153,10 @@ Classic ECN detection is another feature absent in mainline ns-3 Prague. This fe
 
 [[1]](https://tools.ietf.org/id/draft-ietf-tsvwg-l4s-arch-03.html) Low Latency, Low Loss, Scalable Throughput (L4S) Internet Service: Architecture
 
-[[2]](https://www.ietf.org/proceedings/interim-2020-tsvwg-01/slides/slides-interim-2020-tsvwg-01-sessa-l4s-tcp-prague-update-00.pdf) Slides from the TSVWG IETF Interim Meeting, February 2020
+[[2]](https://www.bobbriscoe.net/projects/latency/tcp-prague-netdev0x13.pdf) Implementing the 'Prague Requirements' for Low Latency Low Loss Scalable Throughput (L4S)
 
-[[3]](https://arxiv.org/pdf/1911.00710.pdf) TCP Prague Fall-back on Detection of a Classic ECN AQM
+[[3]](https://arxiv.org/pdf/1904.07605.pdf) Resolving Tensions between Congestion Control Scaling Requirements
+
+[[4]](https://www.ietf.org/proceedings/interim-2020-tsvwg-01/slides/slides-interim-2020-tsvwg-01-sessa-l4s-tcp-prague-update-00.pdf) Slides from the TSVWG IETF Interim Meeting, February 2020
+
+[[5]](https://arxiv.org/pdf/1911.00710.pdf) TCP Prague Fall-back on Detection of a Classic ECN AQM
