@@ -1,0 +1,16 @@
+results-prague-fq commit cd05fbb Fri Oct 16 17:51:59 2020 +0530
+diff --git a/experiments/tsvwg-issue-17-one-flow/run-single.sh b/experiments/tsvwg-issue-17-one-flow/run-single.sh
+index a672109..79d915d 100755
+--- a/experiments/tsvwg-issue-17-one-flow/run-single.sh
++++ b/experiments/tsvwg-issue-17-one-flow/run-single.sh
+@@ -47,8 +47,8 @@
+ # 538, 381
+ 
+ link3rate=100Mbps
+-rtt=5ms
+-stopTime=60s
++rtt=160ms
++stopTime=200s
+ throughputSamplingInterval=200ms
+ 
+ scenario_id=one-flow

@@ -5,6 +5,12 @@ Project webpage: [https://deepakkavoor.github.io/gsoc-2020-prague](https://deepa
 
 This branch contains results of simulations performed in ns-3 and Linux namespaces comparing the implementations of TCP Prague.
 
+### Contents:
+- [Topology](#Topology)
+- [Results in Linux namespaces](#Results-in-Linux-namespaces)
+- [Results in ns-3](#Results-in-ns-3)
+- [Quick comparison between ns-3 and Linux](#Quick-comparison-between-ns-3-and-Linux)
+
 ### Topology:
 
 ```
@@ -31,7 +37,7 @@ The parameters used for queue discs are:
 
 The link between routers m3 and lr is chosen to be the bottleneck with rate 100Mbps and a configurable delay (5ms, 80ms, 160ms). All other links support a data rate of 1000Mbps and delay 1us. 
 
-### Results in Linux Namespaces
+### Results in Linux namespaces
 
 The above topology was generated in Linux namespaces using [this](https://github.com/L4STeam/linux/tree/b256daedc7672b2188f19e8b6f71ef5db7afc720) kernel version of TCP Prague.
 
