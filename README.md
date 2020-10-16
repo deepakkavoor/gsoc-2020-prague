@@ -35,7 +35,7 @@ The parameters used for queue discs are:
 - fq_codel -- ce_threshold: 1ms , interval: 100ms , target: 5ms
 - pfifo -- limit: 5000p 
 
-The link between routers m3 and lr is chosen to be the bottleneck with rate 100Mbps and a configurable delay (5ms, 80ms, 160ms). All other links support a data rate of 1000Mbps and delay 1us. 
+The link between routers m3 and lr is chosen to be the bottleneck with rate 100Mbps and a configurable delay (4ms, 80ms, 160ms). All other links support a data rate of 1000Mbps and delay 1us. 
 
 ### Results in Linux namespaces
 
@@ -63,7 +63,7 @@ sudo python3 prague.py
 
 The file [prague.py](https://gitlab.com/deepakkavoor/nest/-/blob/results-prague-fq/examples/prague.py) sets up nodes in the topology, installs queue discs and runs a TCP Prague flow between server1 and client1 using namespaces. The last command executes it with root access to create a folder containing results of the simulation.
 
-For convenience, the folders in [linux-namespaces/](linux-namespaces/) contain raw simulation data obtained by following the aforementioned instructions. These contain data for bottleneck rate 100Mbps and RTT 5ms, 80ms and 160ms. Values of these parameters can be manually changed from [prague.py](https://gitlab.com/deepakkavoor/nest/-/blob/results-prague-fq/examples/prague.py).
+For convenience, the folders in [linux-namespaces/](linux-namespaces/) contain raw simulation data obtained by following the aforementioned instructions. These contain data for bottleneck rate 100Mbps and RTT 4ms, 80ms and 160ms. Values of these parameters can be manually changed from [prague.py](https://gitlab.com/deepakkavoor/nest/-/blob/results-prague-fq/examples/prague.py).
 
 ### Results in ns-3
 
@@ -97,7 +97,7 @@ cd experiments/tsvwg-issue-17-one-flow/
 
 Executing ```run-single.sh``` creates a new directory in ```l4s-evaluation/experiments/tsvwg-issue-17-one-flow/results/``` containing raw data and plots for congestion window, RTT, throughput and queue statistics.
 
-As before the folders in [ns-3/](ns-3/) contain raw simulation data for bottleneck rate 100Mbps and RTT 5ms, 80ms and 160ms. Values of these parameters can be manually changed from [run-single.sh](https://gitlab.com/deepakkavoor/l4s-evaluation/-/blob/results-prague-fq/experiments/tsvwg-issue-17-one-flow/run-single.sh).
+As before the folders in [ns-3/](ns-3/) contain raw simulation data for bottleneck rate 100Mbps and RTT 4ms, 80ms and 160ms. Values of these parameters can be manually changed from [run-single.sh](https://gitlab.com/deepakkavoor/l4s-evaluation/-/blob/results-prague-fq/experiments/tsvwg-issue-17-one-flow/run-single.sh).
 
 ### Quick comparison between ns-3 and Linux
 
