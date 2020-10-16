@@ -3,7 +3,7 @@
 Project webpage: [https://deepakkavoor.github.io/gsoc-2020-prague](https://deepakkavoor.github.io/gsoc-2020-prague)
 
 
-This branch contains results and steps to reproduce simulations performed in ns-3 and Linux namespaces.
+This branch contains results of simulations performed in ns-3 and Linux namespaces comparing the implementations of TCP Prague.
 
 ### Topology:
 
@@ -32,15 +32,15 @@ The link between routers m3 and lr is chosen to be the bottleneck with rate 95 M
 
 The above topology was generated in Linux namespaces using [this](https://github.com/L4STeam/linux/tree/b256daedc7672b2188f19e8b6f71ef5db7afc720) kernel version of TCP Prague.
 
-The folders in [linux-namespaces/](linux-namespaces/) contain raw simulation data obtained for bottleneck rate 100Mbps and RTT 5ms, 80ms and 160ms.
-
 #### Steps to reproduce these results:
 
--- Install [kernel](https://github.com/L4STeam/linux/tree/b256daedc7672b2188f19e8b6f71ef5db7afc720) supporting TCP Prague.
+1. Build the [kernel](https://github.com/L4STeam/linux/tree/b256daedc7672b2188f19e8b6f71ef5db7afc720) supporting TCP Prague.
 
--- Make sure that following Python packages are available: numpy , matplotlib , packaging.
+2. Install the Python packages ```numpy``` , ```matplotlib``` , ```packaging```.
 
--- Execute the following commands.
+3. We use [NeST](https://gitlab.com/nitk-nest/nest) to handle testbed setup, configuration,
+collection and visualization of data in Linux namespaces.
+Execute the following commands.
 ```bash
 git clone https://gitlab.com/deepakkavoor/nest.git
 cd nest/
@@ -49,4 +49,6 @@ cd examples/
 sudo python3 prague.py
 ```
 
-The file ```prague.py``` contains required setup for aforementioned topology. Running it with root access creates a folder containing results of the simulation.
+The file [prague.py](https://gitlab.com/deepakkavoor/nest/-/blob/results-prague-fq/examples/prague.py) sets up nodes in the topology, installs queue discs and runs a TCP Prague flow between server1 and client1 using namespaces. The last command executes it with root access to create a folder containing results of the simulation.
+
+For convenience, the folders in [linux-namespaces/](linux-namespaces/) contain raw simulation data obtained by following the aforementioned instructions. These contain data for bottleneck rate 100Mbps and RTT 5ms, 80ms and 160ms.
