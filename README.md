@@ -7,11 +7,14 @@ This branch contains results of simulations performed in ns-3 and Linux namespac
 
 ### Topology:
 
+```
 server1 -->-- wr -->-- m1 -->-- m2 -->-- m3 -->-- lr -->-- client1
+```
 
+This topology and the subsequent parameters we choose in our experiments (bottleneck rate, RTT) are motivated by Pete Heist's [tests](https://github.com/heistp/sce-l4s-bakeoff#scenario-1) comparing SCE and L4S. 
 There are seven nodes with one TCP Prague flow from server1 to client1. 
 
-Following mapping depicts the queue disc type installed at each node in the namespace:
+Following mapping depicts the queue disc type installed at each node:
 
 - server1 -- fq_codel
 - wr -- fq_codel
@@ -26,11 +29,14 @@ The parameters used for queue discs are:
 - fq_codel -- ce_threshold: 1ms , interval: 100ms , target: 5ms
 - pfifo -- limit: 5000p 
 
-The link between routers m3 and lr is chosen to be the bottleneck with rate 95 Mbps and a configurable delay. All other links support a data rate of 1000Mbps and delay 1us. 
+The link between routers m3 and lr is chosen to be the bottleneck with rate 95 Mbps and a configurable delay (5ms, 80ms, 160ms). All other links support a data rate of 1000Mbps and delay 1us. 
 
-### Results for Linux Namespaces
+### Results in Linux Namespaces
 
 The above topology was generated in Linux namespaces using [this](https://github.com/L4STeam/linux/tree/b256daedc7672b2188f19e8b6f71ef5db7afc720) kernel version of TCP Prague.
+
+We use [NeST](https://gitlab.com/nitk-nest/nest) to handle testbed setup, configuration,
+collection and visualization of data in Linux namespaces. NeST obtains periodic socket statistics (congestion window, delivery rate, RTT) using ```ss``` tool, queue statistics using ```tc``` and throughput statistics using ```netperf``` to generate subsequent plots.
 
 #### Steps to reproduce these results:
 
@@ -38,9 +44,7 @@ The above topology was generated in Linux namespaces using [this](https://github
 
 2. Install the Python packages ```numpy``` , ```matplotlib``` , ```packaging```.
 
-3. We use [NeST](https://gitlab.com/nitk-nest/nest) to handle testbed setup, configuration,
-collection and visualization of data in Linux namespaces.
-Execute the following commands.
+3. Execute the following commands.
 ```bash
 git clone https://gitlab.com/deepakkavoor/nest.git
 cd nest/
