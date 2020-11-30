@@ -1,654 +1,282 @@
 {
     "server1": [
         {
-            "10.0.6.2:33431": [
+            "10.0.6.2:40481": [
                 {
-                    "timestamp": "1606219134.312",
-                    "throughput": "94.25"
+                    "timestamp": "1606704297.071",
+                    "throughput": "100.27"
                 },
                 {
-                    "timestamp": "1606219134.531",
-                    "throughput": "95.48"
-                },
-                {
-                    "timestamp": "1606219134.748",
-                    "throughput": "95.73"
-                },
-                {
-                    "timestamp": "1606219134.968",
-                    "throughput": "94.86"
-                },
-                {
-                    "timestamp": "1606219135.185",
-                    "throughput": "96.29"
-                },
-                {
-                    "timestamp": "1606219135.404",
-                    "throughput": "94.90"
-                },
-                {
-                    "timestamp": "1606219135.621",
-                    "throughput": "96.28"
-                },
-                {
-                    "timestamp": "1606219135.839",
-                    "throughput": "95.59"
-                },
-                {
-                    "timestamp": "1606219136.057",
-                    "throughput": "95.32"
-                },
-                {
-                    "timestamp": "1606219136.275",
-                    "throughput": "96.29"
-                },
-                {
-                    "timestamp": "1606219136.492",
-                    "throughput": "95.86"
-                },
-                {
-                    "timestamp": "1606219136.712",
-                    "throughput": "95.11"
-                },
-                {
-                    "timestamp": "1606219136.929",
-                    "throughput": "95.98"
-                },
-                {
-                    "timestamp": "1606219137.147",
-                    "throughput": "95.53"
-                },
-                {
-                    "timestamp": "1606219137.365",
-                    "throughput": "95.49"
-                },
-                {
-                    "timestamp": "1606219137.585",
-                    "throughput": "94.80"
-                },
-                {
-                    "timestamp": "1606219137.801",
-                    "throughput": "96.50"
-                },
-                {
-                    "timestamp": "1606219138.013",
-                    "throughput": "95.68"
-                },
-                {
-                    "timestamp": "1606219138.233",
-                    "throughput": "94.95"
-                },
-                {
-                    "timestamp": "1606219138.451",
-                    "throughput": "95.59"
-                },
-                {
-                    "timestamp": "1606219138.668",
-                    "throughput": "96.12"
-                },
-                {
-                    "timestamp": "1606219138.885",
-                    "throughput": "96.28"
-                },
-                {
-                    "timestamp": "1606219139.103",
-                    "throughput": "95.63"
-                },
-                {
-                    "timestamp": "1606219139.321",
-                    "throughput": "95.59"
-                },
-                {
-                    "timestamp": "1606219139.540",
-                    "throughput": "95.48"
-                },
-                {
-                    "timestamp": "1606219139.758",
-                    "throughput": "95.59"
-                },
-                {
-                    "timestamp": "1606219139.976",
-                    "throughput": "95.26"
-                },
-                {
-                    "timestamp": "1606219140.195",
-                    "throughput": "95.22"
-                },
-                {
-                    "timestamp": "1606219140.412",
-                    "throughput": "96.09"
-                },
-                {
-                    "timestamp": "1606219140.626",
-                    "throughput": "95.00"
-                },
-                {
-                    "timestamp": "1606219140.845",
-                    "throughput": "95.37"
-                },
-                {
-                    "timestamp": "1606219141.063",
-                    "throughput": "95.58"
-                },
-                {
-                    "timestamp": "1606219141.280",
-                    "throughput": "95.92"
-                },
-                {
-                    "timestamp": "1606219141.497",
-                    "throughput": "96.41"
-                },
-                {
-                    "timestamp": "1606219141.715",
-                    "throughput": "95.95"
-                },
-                {
-                    "timestamp": "1606219141.934",
+                    "timestamp": "1606704297.290",
                     "throughput": "95.17"
                 },
                 {
-                    "timestamp": "1606219142.151",
-                    "throughput": "93.52"
+                    "timestamp": "1606704297.507",
+                    "throughput": "96.02"
                 },
                 {
-                    "timestamp": "1606219142.370",
-                    "throughput": "95.12"
-                },
-                {
-                    "timestamp": "1606219142.581",
-                    "throughput": "96.38"
-                },
-                {
-                    "timestamp": "1606219142.799",
-                    "throughput": "95.59"
-                },
-                {
-                    "timestamp": "1606219143.018",
-                    "throughput": "95.16"
-                },
-                {
-                    "timestamp": "1606219143.229",
-                    "throughput": "96.07"
-                },
-                {
-                    "timestamp": "1606219143.449",
-                    "throughput": "94.80"
-                },
-                {
-                    "timestamp": "1606219143.666",
-                    "throughput": "96.01"
-                },
-                {
-                    "timestamp": "1606219143.883",
-                    "throughput": "96.56"
-                },
-                {
-                    "timestamp": "1606219144.101",
-                    "throughput": "95.70"
-                },
-                {
-                    "timestamp": "1606219144.319",
-                    "throughput": "95.42"
-                },
-                {
-                    "timestamp": "1606219144.539",
-                    "throughput": "95.10"
-                },
-                {
-                    "timestamp": "1606219144.750",
-                    "throughput": "95.99"
-                },
-                {
-                    "timestamp": "1606219144.969",
-                    "throughput": "95.03"
-                },
-                {
-                    "timestamp": "1606219145.188",
+                    "timestamp": "1606704297.725",
                     "throughput": "95.49"
                 },
                 {
-                    "timestamp": "1606219145.406",
-                    "throughput": "95.56"
-                },
-                {
-                    "timestamp": "1606219145.623",
-                    "throughput": "96.16"
-                },
-                {
-                    "timestamp": "1606219145.842",
-                    "throughput": "95.01"
-                },
-                {
-                    "timestamp": "1606219146.058",
-                    "throughput": "96.38"
-                },
-                {
-                    "timestamp": "1606219146.276",
-                    "throughput": "95.59"
-                },
-                {
-                    "timestamp": "1606219146.494",
-                    "throughput": "96.13"
-                },
-                {
-                    "timestamp": "1606219146.712",
-                    "throughput": "95.59"
-                },
-                {
-                    "timestamp": "1606219146.931",
-                    "throughput": "95.42"
-                },
-                {
-                    "timestamp": "1606219147.150",
-                    "throughput": "94.87"
-                },
-                {
-                    "timestamp": "1606219147.364",
-                    "throughput": "94.97"
-                },
-                {
-                    "timestamp": "1606219147.582",
-                    "throughput": "95.64"
-                },
-                {
-                    "timestamp": "1606219147.794",
-                    "throughput": "95.94"
-                },
-                {
-                    "timestamp": "1606219148.008",
-                    "throughput": "94.97"
-                },
-                {
-                    "timestamp": "1606219148.226",
+                    "timestamp": "1606704297.944",
                     "throughput": "95.38"
                 },
                 {
-                    "timestamp": "1606219148.445",
-                    "throughput": "95.25"
+                    "timestamp": "1606704298.163",
+                    "throughput": "95.01"
                 },
                 {
-                    "timestamp": "1606219148.663",
-                    "throughput": "95.83"
+                    "timestamp": "1606704298.380",
+                    "throughput": "95.90"
                 },
                 {
-                    "timestamp": "1606219148.882",
-                    "throughput": "95.03"
+                    "timestamp": "1606704298.598",
+                    "throughput": "96.56"
                 },
                 {
-                    "timestamp": "1606219149.094",
-                    "throughput": "96.24"
-                },
-                {
-                    "timestamp": "1606219149.312",
-                    "throughput": "95.58"
-                },
-                {
-                    "timestamp": "1606219149.531",
-                    "throughput": "95.52"
-                },
-                {
-                    "timestamp": "1606219149.743",
-                    "throughput": "95.63"
-                },
-                {
-                    "timestamp": "1606219149.961",
-                    "throughput": "95.51"
-                },
-                {
-                    "timestamp": "1606219150.179",
-                    "throughput": "95.64"
-                },
-                {
-                    "timestamp": "1606219150.397",
-                    "throughput": "95.53"
-                },
-                {
-                    "timestamp": "1606219150.610",
-                    "throughput": "95.57"
-                },
-                {
-                    "timestamp": "1606219150.823",
-                    "throughput": "95.31"
-                },
-                {
-                    "timestamp": "1606219151.041",
-                    "throughput": "95.85"
-                },
-                {
-                    "timestamp": "1606219151.259",
-                    "throughput": "95.42"
-                },
-                {
-                    "timestamp": "1606219151.478",
-                    "throughput": "95.74"
-                },
-                {
-                    "timestamp": "1606219151.689",
-                    "throughput": "96.04"
-                },
-                {
-                    "timestamp": "1606219151.908",
-                    "throughput": "95.53"
-                },
-                {
-                    "timestamp": "1606219152.125",
-                    "throughput": "95.77"
-                },
-                {
-                    "timestamp": "1606219152.344",
-                    "throughput": "95.08"
-                },
-                {
-                    "timestamp": "1606219152.561",
-                    "throughput": "96.20"
-                },
-                {
-                    "timestamp": "1606219152.779",
-                    "throughput": "95.43"
-                },
-                {
-                    "timestamp": "1606219152.997",
-                    "throughput": "95.80"
-                },
-                {
-                    "timestamp": "1606219153.217",
-                    "throughput": "94.85"
-                },
-                {
-                    "timestamp": "1606219153.435",
-                    "throughput": "95.58"
-                },
-                {
-                    "timestamp": "1606219153.646",
-                    "throughput": "96.08"
-                },
-                {
-                    "timestamp": "1606219153.859",
-                    "throughput": "96.12"
-                },
-                {
-                    "timestamp": "1606219154.062",
-                    "throughput": "92.45"
-                },
-                {
-                    "timestamp": "1606219154.279",
-                    "throughput": "95.78"
-                },
-                {
-                    "timestamp": "1606219154.498",
-                    "throughput": "95.25"
-                },
-                {
-                    "timestamp": "1606219154.711",
-                    "throughput": "95.51"
-                },
-                {
-                    "timestamp": "1606219154.929",
-                    "throughput": "95.68"
-                },
-                {
-                    "timestamp": "1606219155.146",
-                    "throughput": "96.00"
-                },
-                {
-                    "timestamp": "1606219155.364",
-                    "throughput": "95.55"
-                },
-                {
-                    "timestamp": "1606219155.579",
-                    "throughput": "94.55"
-                },
-                {
-                    "timestamp": "1606219155.796",
-                    "throughput": "95.99"
-                },
-                {
-                    "timestamp": "1606219156.014",
-                    "throughput": "95.71"
-                },
-                {
-                    "timestamp": "1606219156.231",
-                    "throughput": "96.51"
-                },
-                {
-                    "timestamp": "1606219156.450",
-                    "throughput": "95.05"
-                },
-                {
-                    "timestamp": "1606219156.667",
-                    "throughput": "96.18"
-                },
-                {
-                    "timestamp": "1606219156.886",
+                    "timestamp": "1606704298.817",
                     "throughput": "94.95"
                 },
                 {
-                    "timestamp": "1606219157.103",
-                    "throughput": "96.13"
+                    "timestamp": "1606704299.033",
+                    "throughput": "96.35"
                 },
                 {
-                    "timestamp": "1606219157.315",
-                    "throughput": "95.64"
+                    "timestamp": "1606704299.254",
+                    "throughput": "94.61"
                 },
                 {
-                    "timestamp": "1606219157.534",
-                    "throughput": "95.55"
+                    "timestamp": "1606704299.470",
+                    "throughput": "96.53"
                 },
                 {
-                    "timestamp": "1606219157.752",
-                    "throughput": "95.41"
+                    "timestamp": "1606704299.673",
+                    "throughput": "94.55"
                 },
                 {
-                    "timestamp": "1606219157.965",
-                    "throughput": "95.39"
-                },
-                {
-                    "timestamp": "1606219158.184",
-                    "throughput": "95.34"
-                },
-                {
-                    "timestamp": "1606219158.396",
-                    "throughput": "95.84"
-                },
-                {
-                    "timestamp": "1606219158.616",
-                    "throughput": "95.35"
-                },
-                {
-                    "timestamp": "1606219158.832",
-                    "throughput": "96.10"
-                },
-                {
-                    "timestamp": "1606219159.050",
-                    "throughput": "95.69"
-                },
-                {
-                    "timestamp": "1606219159.269",
-                    "throughput": "95.29"
-                },
-                {
-                    "timestamp": "1606219159.488",
-                    "throughput": "95.11"
-                },
-                {
-                    "timestamp": "1606219159.706",
-                    "throughput": "95.57"
-                },
-                {
-                    "timestamp": "1606219159.923",
-                    "throughput": "95.97"
-                },
-                {
-                    "timestamp": "1606219160.141",
-                    "throughput": "95.53"
-                },
-                {
-                    "timestamp": "1606219160.355",
-                    "throughput": "95.08"
-                },
-                {
-                    "timestamp": "1606219160.573",
-                    "throughput": "95.76"
-                },
-                {
-                    "timestamp": "1606219160.774",
-                    "throughput": "92.99"
-                },
-                {
-                    "timestamp": "1606219160.990",
-                    "throughput": "97.00"
-                },
-                {
-                    "timestamp": "1606219161.210",
-                    "throughput": "95.06"
-                },
-                {
-                    "timestamp": "1606219161.431",
-                    "throughput": "94.29"
-                },
-                {
-                    "timestamp": "1606219161.648",
-                    "throughput": "95.95"
-                },
-                {
-                    "timestamp": "1606219161.861",
-                    "throughput": "95.53"
-                },
-                {
-                    "timestamp": "1606219162.074",
-                    "throughput": "95.20"
-                },
-                {
-                    "timestamp": "1606219162.293",
-                    "throughput": "95.20"
-                },
-                {
-                    "timestamp": "1606219162.505",
-                    "throughput": "95.63"
-                },
-                {
-                    "timestamp": "1606219162.717",
-                    "throughput": "96.00"
-                },
-                {
-                    "timestamp": "1606219162.935",
-                    "throughput": "95.58"
-                },
-                {
-                    "timestamp": "1606219163.148",
-                    "throughput": "95.52"
-                },
-                {
-                    "timestamp": "1606219163.369",
-                    "throughput": "94.73"
-                },
-                {
-                    "timestamp": "1606219163.588",
-                    "throughput": "95.20"
-                },
-                {
-                    "timestamp": "1606219163.808",
-                    "throughput": "94.91"
-                },
-                {
-                    "timestamp": "1606219164.027",
-                    "throughput": "94.81"
-                },
-                {
-                    "timestamp": "1606219164.245",
-                    "throughput": "95.54"
-                },
-                {
-                    "timestamp": "1606219164.463",
-                    "throughput": "95.68"
-                },
-                {
-                    "timestamp": "1606219164.682",
-                    "throughput": "95.43"
-                },
-                {
-                    "timestamp": "1606219164.900",
-                    "throughput": "95.53"
-                },
-                {
-                    "timestamp": "1606219165.118",
-                    "throughput": "95.57"
-                },
-                {
-                    "timestamp": "1606219165.336",
-                    "throughput": "95.54"
-                },
-                {
-                    "timestamp": "1606219165.555",
-                    "throughput": "95.15"
-                },
-                {
-                    "timestamp": "1606219165.774",
-                    "throughput": "95.06"
-                },
-                {
-                    "timestamp": "1606219165.994",
-                    "throughput": "95.55"
-                },
-                {
-                    "timestamp": "1606219166.214",
-                    "throughput": "94.47"
-                },
-                {
-                    "timestamp": "1606219166.431",
+                    "timestamp": "1606704299.890",
                     "throughput": "96.24"
                 },
                 {
-                    "timestamp": "1606219166.651",
-                    "throughput": "94.88"
+                    "timestamp": "1606704300.108",
+                    "throughput": "95.65"
                 },
                 {
-                    "timestamp": "1606219166.852",
-                    "throughput": "93.17"
+                    "timestamp": "1606704300.326",
+                    "throughput": "95.57"
                 },
                 {
-                    "timestamp": "1606219167.068",
-                    "throughput": "96.33"
+                    "timestamp": "1606704300.544",
+                    "throughput": "95.65"
                 },
                 {
-                    "timestamp": "1606219167.283",
-                    "throughput": "94.74"
+                    "timestamp": "1606704300.763",
+                    "throughput": "94.85"
                 },
                 {
-                    "timestamp": "1606219167.500",
-                    "throughput": "95.75"
+                    "timestamp": "1606704300.982",
+                    "throughput": "95.48"
                 },
                 {
-                    "timestamp": "1606219167.713",
-                    "throughput": "95.51"
+                    "timestamp": "1606704301.198",
+                    "throughput": "96.99"
                 },
                 {
-                    "timestamp": "1606219167.932",
-                    "throughput": "95.22"
+                    "timestamp": "1606704301.416",
+                    "throughput": "95.68"
                 },
                 {
-                    "timestamp": "1606219168.151",
-                    "throughput": "95.85"
+                    "timestamp": "1606704301.636",
+                    "throughput": "94.83"
                 },
                 {
-                    "timestamp": "1606219168.367",
-                    "throughput": "96.43"
+                    "timestamp": "1606704301.852",
+                    "throughput": "96.32"
                 },
                 {
-                    "timestamp": "1606219168.587",
-                    "throughput": "94.38"
+                    "timestamp": "1606704302.072",
+                    "throughput": "94.68"
                 },
                 {
-                    "timestamp": "1606219168.804",
-                    "throughput": "96.25"
+                    "timestamp": "1606704302.292",
+                    "throughput": "94.85"
                 },
                 {
-                    "timestamp": "1606219169.022",
-                    "throughput": "95.75"
+                    "timestamp": "1606704302.509",
+                    "throughput": "95.97"
                 },
                 {
-                    "timestamp": "1606219169.098",
-                    "throughput": "106.89"
+                    "timestamp": "1606704302.727",
+                    "throughput": "95.58"
+                },
+                {
+                    "timestamp": "1606704302.945",
+                    "throughput": "95.71"
+                },
+                {
+                    "timestamp": "1606704303.163",
+                    "throughput": "95.59"
+                },
+                {
+                    "timestamp": "1606704303.381",
+                    "throughput": "95.58"
+                },
+                {
+                    "timestamp": "1606704303.599",
+                    "throughput": "95.59"
+                },
+                {
+                    "timestamp": "1606704303.817",
+                    "throughput": "96.19"
+                },
+                {
+                    "timestamp": "1606704304.035",
+                    "throughput": "95.64"
+                },
+                {
+                    "timestamp": "1606704304.253",
+                    "throughput": "95.53"
+                },
+                {
+                    "timestamp": "1606704304.471",
+                    "throughput": "95.60"
+                },
+                {
+                    "timestamp": "1606704304.691",
+                    "throughput": "94.81"
+                },
+                {
+                    "timestamp": "1606704304.908",
+                    "throughput": "96.07"
+                },
+                {
+                    "timestamp": "1606704305.125",
+                    "throughput": "95.84"
+                },
+                {
+                    "timestamp": "1606704305.343",
+                    "throughput": "95.60"
+                },
+                {
+                    "timestamp": "1606704305.562",
+                    "throughput": "95.37"
+                },
+                {
+                    "timestamp": "1606704305.779",
+                    "throughput": "95.81"
+                },
+                {
+                    "timestamp": "1606704305.997",
+                    "throughput": "95.48"
+                },
+                {
+                    "timestamp": "1606704306.215",
+                    "throughput": "95.69"
+                },
+                {
+                    "timestamp": "1606704306.434",
+                    "throughput": "96.03"
+                },
+                {
+                    "timestamp": "1606704306.652",
+                    "throughput": "95.55"
+                },
+                {
+                    "timestamp": "1606704306.871",
+                    "throughput": "95.16"
+                },
+                {
+                    "timestamp": "1606704307.088",
+                    "throughput": "96.02"
+                },
+                {
+                    "timestamp": "1606704307.306",
+                    "throughput": "95.57"
+                },
+                {
+                    "timestamp": "1606704307.525",
+                    "throughput": "94.90"
+                },
+                {
+                    "timestamp": "1606704307.743",
+                    "throughput": "95.60"
+                },
+                {
+                    "timestamp": "1606704307.961",
+                    "throughput": "95.70"
+                },
+                {
+                    "timestamp": "1606704308.178",
+                    "throughput": "96.11"
+                },
+                {
+                    "timestamp": "1606704308.397",
+                    "throughput": "94.94"
+                },
+                {
+                    "timestamp": "1606704308.616",
+                    "throughput": "95.38"
+                },
+                {
+                    "timestamp": "1606704308.834",
+                    "throughput": "95.67"
+                },
+                {
+                    "timestamp": "1606704309.052",
+                    "throughput": "96.27"
+                },
+                {
+                    "timestamp": "1606704309.269",
+                    "throughput": "95.73"
+                },
+                {
+                    "timestamp": "1606704309.488",
+                    "throughput": "95.48"
+                },
+                {
+                    "timestamp": "1606704309.706",
+                    "throughput": "95.60"
+                },
+                {
+                    "timestamp": "1606704309.923",
+                    "throughput": "95.90"
+                },
+                {
+                    "timestamp": "1606704310.141",
+                    "throughput": "95.47"
+                },
+                {
+                    "timestamp": "1606704310.360",
+                    "throughput": "95.46"
+                },
+                {
+                    "timestamp": "1606704310.578",
+                    "throughput": "95.39"
+                },
+                {
+                    "timestamp": "1606704310.796",
+                    "throughput": "95.61"
+                },
+                {
+                    "timestamp": "1606704311.014",
+                    "throughput": "95.58"
+                },
+                {
+                    "timestamp": "1606704311.232",
+                    "throughput": "95.44"
+                },
+                {
+                    "timestamp": "1606704311.450",
+                    "throughput": "95.59"
+                },
+                {
+                    "timestamp": "1606704311.668",
+                    "throughput": "95.60"
+                },
+                {
+                    "timestamp": "1606704311.880",
+                    "throughput": "98.70"
                 }
             ]
         }
